@@ -4,125 +4,153 @@
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License version 1.3c,
 % available at http://www.latex-project.org/lppl/.
+\documentclass[10pt, a4paper, dvips]{moderncv}
 
+\moderncvtheme[grey, roman]{classic}
 
-\documentclass[11pt,a4paper]{moderncv}
-
-% moderncv themes
-\moderncvtheme[blue]{casual}                 % optional argument are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
-%\moderncvtheme[green]{classic}                % idem
-
-% character encoding
-\usepackage[utf8]{inputenc}                   % replace by the encoding you are using
+\usepackage{ifxetex}
+\ifxetex % only for xelatex
+\usepackage{xltxtra} % this should load both fontspec & xunicode
+\usepackage{fontspec}
+\setromanfont{Helvetica Neue}
+\else %
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\fi % \ifxetex
 
 % adjust the page margins
 \usepackage[scale=0.8]{geometry}
-%\setlength{\hintscolumnwidth}{3cm}						% if you want to change the width of the column with the dates
-%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
-%\AtBeginDocument{\recomputelengths}                     % required when changes are made to page layout lengths
+\setlength{\hintscolumnwidth}{3cm}						% if you want to change the width of the column with the dates
+\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+\AtBeginDocument{\recomputelengths}                     % required when changes are made to page layout lengths
 
 % personal data
-\firstname{John}
-\familyname{Doe}
-\title{Resumé title (optional)}               % optional, remove the line if not wanted
-\address{street and number}{postcode city}    % optional, remove the line if not wanted
-\mobile{mobile (optional)}                    % optional, remove the line if not wanted
-\phone{phone (optional)}                      % optional, remove the line if not wanted
-\fax{fax (optional)}                          % optional, remove the line if not wanted
-\email{email (optional)}                      % optional, remove the line if not wanted
-\homepage{homepage (optional)}                % optional, remove the line if not wanted
-\extrainfo{additional information (optional)} % optional, remove the line if not wanted
-%\photo[64pt]{picture}                         % '64pt' is the height the picture must be resized to and 'picture' is the name of the picture file; optional, remove the line if not wanted
-\quote{Some quote (optional)}                 % optional, remove the line if not wanted
+\firstname{Nicolas}
+\familyname{Goles}
+%\title{Software Engineering Student}               % optional, remove the line if not wanted
+\address{}{Santiago, Chile}    % optional, remove the line if not wanted
+\email{nicolas@gandogames.com}                      % optional, remove the line if not wanted
+\homepage%
+{%
+	http://gandogames.com
+}
+
+%	\fontspec[Ligatures={Common, Historical}]{Helvetica Neue}
+%	\fontsize{10pt}{18pt}\selectfont @ngoles
 
 % to show numerical labels in the bibliography; only useful if you make citations in your resume
 \makeatletter
 \renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
 \makeatother
 
-% bibliography with mutiple entries
-%\usepackage{multibib}
-%\newcites{book,misc}{{Books},{Others}}
+%\newcommand\Colorhref[3][cyan]{\href{#2}{\small\color{#1}#3}}
+\usepackage[usenames,dvipsnames]{xcolor}
+\definecolor{darkgray}{rgb}{0.4,0.4,0.4}
+\newcommand\Colorhref[1]{\small\textcolor{RoyalBlue}{\url{#1}}}
 
-%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
 %----------------------------------------------------------------------------------
 %            content
 %----------------------------------------------------------------------------------
 \begin{document}
 \maketitle
 
-\section{Education}
-\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}  % arguments 3 to 6 can be left empty
-\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}
+\begin{small}
+\textcolor{darkgray}{
+\textbf{I'm a strongly motivated team player with great social skills, working to improve my abilities on a daily basis. Always interested in exciting and challenging projects in creative environments where I can
+both contribute and learn from a great team of people.}}
+\end{small}
 
-\section{Master thesis}
-\cvline{title}{\emph{Title}}
-\cvline{supervisors}{Supervisors}
-\cvline{description}{\small Short thesis abstract}
+%----------------------------------------------------------------------------------
+%            Skills
+%----------------------------------------------------------------------------------
+\section{Skills}
+\cvline{Languages}{C++, C, Objective-C, Lua, Python}
+\cvline{Technologies}{Cocoa Touch, Cocoa, OpenGL ES 1.1/2.0, OpenGL}
+\cvline{Software}{Xcode, gcc, Git, svn, gdb, Bash, Vim}
+\cvline{Idioms}{Bilingual, Spanish and English. (\textbf{108/120 TOEFL Score})}
+
+
+%----------------------------------------------------------------------------------
+%            Education
+%----------------------------------------------------------------------------------
+\section{Education}
+\cventry{\begin{small}Current\end{small}}{Software Engineer}{UTFSM}{Santiago, Chile}{last year student}{\begin{scriptsize}To graduate on 2012.\end{scriptsize}}  % arguments 3 to 6 can be left empty
 
 \section{Experience}
-\subsection{Vocational}
-\cventry{year--year}{Job title}{Employer}{City}{}{General description no longer than 1--2 lines.\newline{}%
-Detailed achievements:%
-\begin{itemize}%
-\item Achievement 1;
-\item Achievement 2, with sub-achievements:
-  \begin{itemize}%
-  \item Sub-achievement (a);
-  \item Sub-achievement (b), with sub-sub-achievements (don't do this!);
-    \begin{itemize}
-    \item Sub-sub-achievement i;
-    \item Sub-sub-achievement ii;
-    \item Sub-sub-achievement iii;
-    \end{itemize}
-  \item Sub-achievement (c);
-  \end{itemize}
-\item Achievement 3.
-\end{itemize}}
-\cventry{year--year}{Job title}{Employer}{City}{}{Description line 1\newline{}Description line 2}
-\subsection{Miscellaneous}
-\cventry{year--year}{Job title}{Employer}{City}{}{Description}
 
-\section{Languages}
-\cvlanguage{Language 1}{Skill level}{Comment}
-\cvlanguage{Language 2}{Skill level}{Comment}
-\cvlanguage{Language 3}{Skill level}{Comment}
+\cventry{\begin{small}April 2010--Current\end{small}}{Lead Engineer}{Gando Games}{Santiago, Chile}{}
+{
+\begin{scriptsize}
+Founder and Lead Engineer of Gando Games, an independent Game Development Studio based in Chile and focused on iOS game development. Released 2 games to Apple's App Store and currently working on the development of Gando Games internal 2D Game Engine.\\
+\end{scriptsize}
+}
 
-\section{Computer skills}
-\cvcomputer{category 1}{XXX, YYY, ZZZ}{category 4}{XXX, YYY, ZZZ}
-\cvcomputer{category 2}{XXX, YYY, ZZZ}{category 5}{XXX, YYY, ZZZ}
-\cvcomputer{category 3}{XXX, YYY, ZZZ}{category 6}{XXX, YYY, ZZZ}
+\cventry{\begin{small}Jan 2010--Mar 2010\end{small}}{Intern (R \& D)}{INRIA, Lognet Team}{Sophia Antipolis, France}{}
+{
+\begin{scriptsize}
+Developed the first prototype of a multi-platform Peer-to-Peer engine (Static Library) to be used in desktop computers and mobile devices (iPhone OS, Mac OS X, Linux and Android OS). This involved C and C++ knowledge, Network Programming, concurrent programming and cross-compiling for several architectures among others.\\
+\end{scriptsize}
+}
 
-\section{Interests}
-\cvline{hobby 1}{\small Description}
-\cvline{hobby 2}{\small Description}
-\cvline{hobby 3}{\small Description}
+\cventry{\begin{small}Oct 2008--Aug 2009\end{small}}{iOS Developer}{Baytex Software}{Santiago, Chile}{}
+{
+\begin{scriptsize}
+Working in Game development for the iPhone Platform with the Cocoa API/Objective-C using cutting edge mobile technologies like OpenGL ES and Cocoa Touch API.\\
+\end{scriptsize}
+}
 
-\section{Extra 1}
-\cvlistitem{Item 1}
-\cvlistitem{Item 2}
-\cvlistitem[+]{Item 3}            % optional other symbol
+\cventry{\begin{small}Dec 2008--Jan 2009\end{small}}{Intern (Software Development)}{Synopsys Inc.}{Santiago, Chile}{}
+{
+\begin{scriptsize}
+Internship as a developer at the PRESTO Compiler group at Synopsys office in Chile. Worked in AMD64 architecture porting and bug fixing of the Presto RTL (register transfer level) languages compiler at
+PRESTO group for a multinational EDA (Electronic Design Automation) enterprise.
+\end{scriptsize}
+}
 
-\renewcommand{\listitemsymbol}{-} % change the symbol for lists
+%----------------------------------------------------------------------------------
+%            Projects & Interests
+%----------------------------------------------------------------------------------
+\section{Projects \& Interests}
+\cventry{\begin{small}July 2009--Current\end{small}}{Stack Overflow}{}{}{}
+{
+\Colorhref{http://stackoverflow.com/users/145077/mr-gando}\\
+}
+\cventry{\begin{small}May 2011--Current\end{small}}{Github}{Xcode 4 Template Generator}{}{}
+{
+\begin{small}Python script to help in the process of making Xcode 4 Templates.\end{small}\\
+\Colorhref{ https://github.com/MrGando/Xcode-4-Template-Generator}
+}
 
-\section{Extra 2}
-\cvlistdoubleitem{Item 1}{Item 4}
-\cvlistdoubleitem{Item 2}{Item 5 \cite{book1}}
-\cvlistdoubleitem{Item 3}{}
+%----------------------------------------------------------------------------------
+%            Awards
+%----------------------------------------------------------------------------------
+\section{Awards}
+\cventry{\begin{small}September 2009\end{small}}{Contest}{National iPhone development contest winner}{}{}
+{
+\begin{scriptsize}
+Winner of the Apple Inc. supported Chilean Applicate iPhone development contest with the game Hex Reaction, the game was chosen winner from a total of 150 participants. Earned conference entry ticket, airplane tickets and hotel fees for the Apple World Wide Developers Conference (WWDC) San Francisco 2010.\\
+\end{scriptsize}
+}
 
-% Publications from a BibTeX file without multibib\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% for BibTeX numerical labels
-\nocite{*}
-\bibliographystyle{plain}
-\bibliography{publications}       % 'publications' is the name of a BibTeX file
+\cventry{\begin{small}October 2009\end{small}}{Academic}{Outstanding Student in extracurricular activities}{}{}
+{
+\begin{scriptsize}
+Award given at Universidad T\'ecnica Federico Santa Mar\'ia, to students that distinguish themselves in activities or projects outside of the University that are related to their field of study.
+\end{scriptsize}
+}
 
-% Publications from a BibTeX file using the multibib package
-%\section{Publications}
-%\nocitebook{book1,book2}
-%\bibliographystylebook{plain}
-%\bibliographybook{publications}   % 'publications' is the name of a BibTeX file
-%\nocitemisc{misc1,misc2,misc3}
-%\bibliographystylemisc{plain}
-%\bibliographymisc{publications}   % 'publications' is the name of a BibTeX file
+%----------------------------------------------------------------------------------
+%            Public
+%----------------------------------------------------------------------------------
+\section{Publications}
+
+%----------------------------------------------------------------------------------
+%            References
+%----------------------------------------------------------------------------------
+\section{References}
+\cventry{}{Available upon Request}{}{}{}
+{
+}
 
 \end{document}
 
